@@ -253,34 +253,22 @@ document
 // TRACK PACKAGE
 // =========================
 
-function trackPackage() {
+async function trackPackage() {
 
     const number =
-
         document
-
-            .getElementById(
-                "trackingNumber"
-            )
-
+            .getElementById("trackingNumber")
             .value
-
             .trim();
 
-
     const result =
-
         document
-
-            .getElementById(
-                "trackingResult"
-            );
+            .getElementById("trackingResult");
 
 
     if (!number) {
 
         result.innerHTML =
-
             "<p>Please enter a tracking number.</p>";
 
         return;
@@ -288,41 +276,107 @@ function trackPackage() {
     }
 
 
-    result.innerHTML = `
+    // Show a loading message
 
-        <div style="
-            background:white;
-            color:#172033;
-            padding:25px;
-            border-radius:15px;
-            max-width:600px;
-            margin:auto;
-        ">
+    result.innerHTML =
+        "<p>Checking tracking information...</p>";
 
-            <h3>
-                Tracking Number:
-                ${number}
-            </h3>
 
-            <p>
-                📦 Status:
-                <strong>
-                    In Transit
-                </strong>
-            </p>
+    try {
 
-            <p>
-                📍 Current Location:
-                Processing Center
-            </p>
+        // Ask our backend for the delivery information
 
-            <p>
-                🚚 Estimated Delivery:
-                In Progress
-            </p>
+        const response = await fetch(
+    "https://apple-spread-backend.onrender.com"
+);
 
-        </div>
 
-    `;
+        // Convert the response into data
+
+        const delivery =
+            await response.json();
+
+
+        // Check if the tracking number matches
+
+        if (
+            number !==
+            delivery.trackingNumber
+        ) {
+
+            result.innerHTML = `
+
+                <div class="tracking-card">
+
+                    <h3>
+                        Tracking number not found
+                    </h3>
+
+                    <p>
+                        Please check your tracking number
+                        and try again.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        // Display the delivery information
+
+        result.innerHTML = `
+
+            <div class="tracking-card">
+
+                <h3>
+                    📦 ${delivery.trackingNumber}
+                </h3>
+
+                <p>
+                    🚚 Status:
+                    <strong>
+                        ${delivery.status}
+                    </strong>
+                </p>
+
+                <p>
+                    📍 Location:
+                    ${delivery.location}
+                </p>
+
+                <p>
+                    📅 Estimated Delivery:
+                    ${delivery.estimatedDelivery}
+                </p>
+
+            </div>
+
+        `;
+
+
+    } catch (error) {
+
+        result.innerHTML = `
+
+            <div class="tracking-card">
+
+                <h3>
+                    Unable to connect
+                </h3>
+
+                <p>
+                    Please make sure your
+                    backend server is running.
+                </p>
+
+            </div>
+
+        `;
+
+    }
 
 }
