@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apple Spread Delivery</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            <span>🚚</span>
+            Apple Spread Delivery
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#delivery">Delivery</a>
+            <a href="#tracking">Tracking</a>
+            <button onclick="openModal('loginModal')" class="nav-btn">
+                Sign In
+            </button>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ⚡ Fast • Safe • Reliable
+            </div>
+
+            <h1>
+                Your package is in
+                <span>good hands.</span>
+            </h1>
+
+            <p>
+                Apple Spread Delivery makes it easy to arrange,
+                manage, and track your deliveries from one simple place.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn" onclick="openModal('registerModal')">
+                    Create Account
+                </button>
+
+                <a href="#delivery" class="secondary-btn">
+                    Arrange Delivery
+                </a>
+            </div>
+
+        </div>
+
+        <div class="delivery-card">
+
+            <div class="card-header">
+                <span>📦</span>
+                <div>
+                    <small>DELIVERY STATUS</small>
+                    <h3>On the way</h3>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-line"></div>
+
+                <div class="step active">
+                    <span>✓</span>
+                    <small>Order</small>
+                </div>
+
+                <div class="step active">
+                    <span>✓</span>
+                    <small>Picked Up</small>
+                </div>
+
+                <div class="step current">
+                    <span>🚚</span>
+                    <small>Transit</small>
+                </div>
+
+                <div class="step">
+                    <span>🏠</span>
+                    <small>Delivered</small>
+                </div>
+            </div>
+
+            <div class="delivery-info">
+                <div>
+                    <small>Estimated Delivery</small>
+                    <strong>2Hrs</strong>
+                </div>
+
+                <div>
+                    <small>Tracking ID</small>
+                    <strong>ASD-2026-001</strong>
+                </div>
+
+            </div>
+                   <small>Fee</small>
+                   <strong>10% of total required amount </strong>
+        </div>
+
+        </div>
+                  <small>Package serial number </small>
+                  <strong>#6827628GUY3</strong>
+        </div>
+
+        </div>
+                  <small>Recipant Details</small>
+                  <strong>Receivers
+RECIPIENT NAME 🧑  :Tracey Cook 
+
+ADDRESS 🏠 :2309 Thornknoll Dr 
+Ft. Washington Md 20744
+USA
+
+PHONE NUMBER 📞  :202-247-0682 
+
+DOB 📅 :12/17/1965
+
+</strong>
+        </div>
+
+        </div>
+                   <small>Sender Details</small>
+                   <strong>
+
+SENDER 🧑 :Director  behalf of association of engineers gulf of America 
+Alaska District. 
+
+
+LOCATION 🏠 :The Gulf of America, Under Exxon Mobil contract</strong>
+
+      </div>
+
+      </div>
+
+
+
+    </section>
+
+
+    <!-- Features -->
+    <section class="features">
+
+        <div class="feature">
+            <div class="feature-icon">🔒</div>
+            <h3>Secure</h3>
+            <p>Your delivery information is handled with care.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>Fast</h3>
+            <p>Simple delivery arrangements without unnecessary delays.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">📍</div>
+            <h3>Trackable</h3>
+            <p>Keep your delivery details organized in one place.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Delivery Form -->
+    <section id="delivery" class="delivery-section">
+
+        <div class="section-title">
+
+            <div class="badge">
+                DELIVERY INFORMATION
+            </div>
+
+            <h2>
+                Arrange your delivery
+            </h2>
+
+            <p>
+                Enter your personal information and delivery address below.
+            </p>
+
+        </div>
+
+
+        <div class="form-container">
+
+            <form id="deliveryForm">
+
+                <!-- Personal Information -->
+
+                <div class="form-section">
